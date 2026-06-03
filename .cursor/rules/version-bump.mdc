@@ -1,0 +1,25 @@
+---
+description: Bump SITE_VERSION on every change before commit or push
+alwaysApply: true
+---
+
+# Version bump on every change
+
+After **any** user-requested change to this project (content, styling, components, config), increment `SITE_VERSION` in `src/lib/version.ts` in the **same commit** as the change.
+
+## Format
+
+- Use `v1.01`, `v1.02`, `v1.03`, … (two-digit patch segment after the dot).
+- Do not skip bumps when batching multiple edits in one session.
+
+## Where it appears
+
+`SITE_VERSION` drives the header and under-hero lines via `VersionLine` (`{locationLabel} · {SITE_VERSION}`).
+
+## Workflow
+
+1. Make the requested edits.
+2. Bump `SITE_VERSION` in `src/lib/version.ts`.
+3. Commit with a message that mentions the new version when pushing to `dev` (unless the user says not to commit/push).
+
+Do not deploy or push unless the user asks (e.g. "push to dev").

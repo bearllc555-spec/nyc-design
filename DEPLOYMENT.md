@@ -18,6 +18,10 @@
 
 Workflow: `.github/workflows/deploy.yml` — builds on push to `main` and `dev`, sets `VITE_SITE_URL` per branch in the workflow file (not empty repo variables), deploys with Wrangler.
 
+### Version label
+
+Bump `SITE_VERSION` in `src/lib/version.ts` on **every** change (`v1.01` → `v1.02`, …). It appears in the hero header and under-hero line (`NYC · v1.xx`). See `.cursor/rules/version-bump.mdc`.
+
 ### Branch workflow
 
 1. Day-to-day work on **`dev`** — pushes auto-deploy to the dev preview URL.
