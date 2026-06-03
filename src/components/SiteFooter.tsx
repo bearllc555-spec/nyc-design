@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { business } from "../lib/business";
 import { footerLinks } from "../content/site";
+import { goHome } from "../lib/navigation";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -45,6 +46,7 @@ export function SiteFooter() {
                 <li key={l.label}>
                   <a
                     href={l.href}
+                    onClick={l.href === "#start" ? goHome : undefined}
                     className="text-sm text-white/85 transition hover:opacity-70"
                   >
                     {l.label}

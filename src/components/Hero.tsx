@@ -2,6 +2,7 @@ import { AnimatedHeading } from "./AnimatedHeading";
 import { FadeIn } from "./FadeIn";
 import { VersionLine } from "./VersionLine";
 import { business } from "../lib/business";
+import { goHome } from "../lib/navigation";
 
 const VIDEO_URL =
   "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260403_050628_c4e32401-fab4-4a27-b7a8-6e9291cd5959.mp4";
@@ -35,9 +36,13 @@ export function Hero() {
         <div className="px-6 pt-6 md:px-12 lg:px-16">
           <nav className="liquid-glass flex items-center justify-between rounded-xl px-4 py-2">
             <div className="flex flex-col">
-              <span className="text-2xl font-semibold tracking-tight">
+              <a
+                href="/"
+                onClick={goHome}
+                className="w-fit text-2xl font-semibold tracking-tight text-white transition-opacity hover:opacity-80"
+              >
                 {business.brandName}
-              </span>
+              </a>
               <VersionLine className="mt-0.5 text-white/60" />
             </div>
 

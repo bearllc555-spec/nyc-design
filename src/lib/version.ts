@@ -1,2 +1,2 @@
 /** Increment on every change — see .cursor/rules/version-bump.mdc */
-export const SITE_VERSION = "v3.02";
+export const SITE_VERSION = "v3.03";
