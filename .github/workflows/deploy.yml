@@ -1,0 +1,48 @@
+name: Build + deploy to Cloudflare Pages
+
+on:
+  push:
+    branches: ["main", "dev"]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Set site URL for branch
+        run: |
+          case "${{ github.ref_name }}" in
+            dev)
+              echo "VITE_SITE_URL=https://dev.nyc-design.pages.dev" >> "$GITHUB_ENV"
+              ;;
+            main)
+              echo "VITE_SITE_URL=https://nyc-design.pages.dev" >> "$GITHUB_ENV"
+              ;;
+            *)
+              echo "VITE_SITE_URL=https://${{ github.ref_name }}.nyc-design.pages.dev" >> "$GITHUB_ENV"
+              ;;
+          esac
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy ./dist --project-name=nyc-design --branch=${{ github.ref_name }}
