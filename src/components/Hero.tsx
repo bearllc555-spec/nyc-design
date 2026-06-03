@@ -11,33 +11,31 @@ export function Hero() {
     <div className="relative min-h-screen bg-black text-white">
       <video
         autoPlay
-        muted
         loop
+        muted
         playsInline
         className="absolute inset-0 h-full w-full object-cover"
-        aria-hidden
       >
         <source src={VIDEO_URL} type="video/mp4" />
       </video>
 
       <div className="relative flex min-h-screen flex-col">
         <div className="px-6 pt-6 md:px-12 lg:px-16">
-          <nav
-            className="liquid-glass flex items-center justify-between rounded-xl px-4 py-2"
-            aria-label="Main"
-          >
+          <nav className="liquid-glass flex items-center justify-between rounded-xl px-4 py-2">
             <span className="text-2xl font-semibold tracking-tight">VEX</span>
+
             <div className="hidden items-center gap-8 text-sm md:flex">
               {NAV_LINKS.map((label) => (
                 <a
                   key={label}
                   href={`#${label.toLowerCase()}`}
-                  className="transition-colors hover:text-gray-300"
+                  className="text-white transition-colors hover:text-gray-300"
                 >
                   {label}
                 </a>
               ))}
             </div>
+
             <button
               type="button"
               className="rounded-lg bg-white px-6 py-2 text-sm font-medium text-black transition-colors hover:bg-gray-100"
@@ -54,12 +52,14 @@ export function Hero() {
                 text={"Shaping tomorrow\nwith vision and action."}
                 className="mb-4 text-4xl font-normal md:text-5xl lg:text-6xl xl:text-7xl"
               />
+
               <FadeIn delay={800} duration={1000}>
                 <p className="mb-5 text-base text-gray-300 md:text-lg">
                   We back visionaries and craft ventures that define what comes
                   next.
                 </p>
               </FadeIn>
+
               <FadeIn delay={1200} duration={1000}>
                 <div className="flex flex-wrap gap-4">
                   <button

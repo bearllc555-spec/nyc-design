@@ -22,7 +22,7 @@ export function FadeIn({
 
   return (
     <div
-      className={`transition-opacity ${className}`}
+      className={`transition-opacity ${className}`.trim()}
       style={{
         opacity: visible ? 1 : 0,
         transitionDuration: `${duration}ms`,

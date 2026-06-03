@@ -25,31 +25,36 @@ export function AnimatedHeading({
 
   return (
     <h1 className={className} style={{ letterSpacing: "-0.04em" }}>
-      {lines.map((line, lineIndex) => (
-        <span key={lineIndex} className="block">
-          {line.split("").map((char, charIndex) => {
-            const delay =
-              lineIndex * line.length * charDelay + charIndex * charDelay;
-            const displayChar = char === " " ? "\u00A0" : char;
+      {lines.map((line, lineIndex) => {
+        const lineLength = line.length;
 
-            return (
-              <span
-                key={`${lineIndex}-${charIndex}`}
-                className="inline-block"
-                style={{
-                  opacity: animate ? 1 : 0,
-                  transform: animate ? "translateX(0)" : "translateX(-18px)",
-                  transitionProperty: "opacity, transform",
-                  transitionDuration: `${charDuration}ms`,
-                  transitionDelay: `${delay}ms`,
-                }}
-              >
-                {displayChar}
-              </span>
-            );
-          })}
-        </span>
-      ))}
+        return (
+          <span key={lineIndex} className="block">
+            {line.split("").map((char, charIndex) => {
+              const delay =
+                lineIndex * lineLength * charDelay + charIndex * charDelay;
+              const displayChar = char === " " ? "\u00A0" : char;
+
+              return (
+                <span
+                  key={`${lineIndex}-${charIndex}`}
+                  className="inline-block transition-[opacity,transform]"
+                  style={{
+                    opacity: animate ? 1 : 0,
+                    transform: animate
+                      ? "translateX(0)"
+                      : "translateX(-18px)",
+                    transitionDuration: `${charDuration}ms`,
+                    transitionDelay: `${delay}ms`,
+                  }}
+                >
+                  {displayChar}
+                </span>
+              );
+            })}
+          </span>
+        );
+      })}
     </h1>
   );
 }
