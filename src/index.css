@@ -49,3 +49,75 @@ body {
   mask-composite: exclude;
   pointer-events: none;
 }
+
+/* Map — "night atlas" treatment */
+.map-stage {
+  isolation: isolate;
+}
+
+.map-iframe {
+  transform: scale(1.08);
+  transform-origin: center 42%;
+  filter: saturate(0.35) contrast(1.25) brightness(0.55) hue-rotate(195deg);
+}
+
+.map-grid-overlay {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mix-blend-mode: overlay;
+}
+
+.map-vignette {
+  background: radial-gradient(
+    ellipse 85% 75% at 50% 42%,
+    transparent 0%,
+    rgba(0, 0, 0, 0.35) 55%,
+    rgba(0, 0, 0, 0.92) 100%
+  );
+}
+
+.map-horizon {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.75) 0%,
+    transparent 22%,
+    transparent 58%,
+    rgba(0, 0, 0, 0.88) 100%
+  );
+}
+
+.map-pin-pulse {
+  animation: map-pin-pulse 2.8s ease-out infinite;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.35) 0%,
+    transparent 70%
+  );
+}
+
+@keyframes map-pin-pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.35);
+    opacity: 0.9;
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .map-pin-pulse {
+    animation: none;
+    opacity: 0.4;
+  }
+
+  .map-iframe {
+    transform: none;
+  }
+}

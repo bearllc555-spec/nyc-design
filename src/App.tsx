@@ -12,17 +12,17 @@ export default function App() {
       <PlaceholderSection
         id="story"
         title="Your journey, elevated"
-        description="VIP Charters connects discerning travelers with private aviation solutions through Aircraft Services Group at Teterboro."
+        description="New Empire Corp works with ambitious teams from our Lexington Avenue office — combining capital, operating experience, and advisory depth for what comes next."
       />
       <PlaceholderSection
         id="rates"
-        title="Transparent charter options"
-        description="Request a tailored quote based on aircraft class, routing, and schedule. Our team will outline clear pricing before you commit."
+        title="Clear engagement models"
+        description="Every mandate is different. We outline scope, economics, and timeline up front so you know how we partner before you commit."
       />
       <PlaceholderSection
         id="benefits"
-        title="Why fly private"
-        description="Save time, protect privacy, and travel on your schedule with dedicated aircraft and crew from the NYC metro's premier general aviation hub."
+        title="Why partner with us"
+        description="Move faster with disciplined investing, hands-on building, and senior advisory — anchored in New York and built for operators who execute."
       />
       <FaqSection />
       <ContactSection />

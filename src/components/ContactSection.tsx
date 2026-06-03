@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { MapPin, Phone } from "lucide-react";
 import { business } from "../lib/business";
 import { contactNote } from "../content/site";
 
@@ -58,9 +58,6 @@ export function ContactSection() {
             <ul className="mt-8 space-y-5 md:mt-10">
               <ContactIconRow href={business.phoneHref} icon={Phone}>
                 {business.phone}
-              </ContactIconRow>
-              <ContactIconRow href={`mailto:${business.email}`} icon={Mail}>
-                {business.email}
               </ContactIconRow>
               <ContactIconRow icon={MapPin}>
                 <span className="whitespace-pre-line">{business.address}</span>

@@ -12,8 +12,8 @@ export function SiteFooter() {
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-6">
             <p className="text-sm text-white/65">
-              Join our newsletter for charter availability, routing updates, and
-              seasonal travel insights.
+              Join our newsletter for market notes, portfolio updates, and
+              invitation-only events from New York.
             </p>
             <form
               className="mt-5 flex max-w-md flex-col gap-2 sm:flex-row"

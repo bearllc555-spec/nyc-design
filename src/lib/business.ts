@@ -1,13 +1,16 @@
-/** Placeholder — replace when final company name and address are provided. */
+/** Google Business Profile — New Empire Corp */
 export const business = {
-  name: "Aircraft Services Group",
-  displayName: "VIP Charters",
-  locationLabel: "Teterboro NJ",
-  address: "401 Industrial Ave\nTeterboro, NJ 07608",
-  addressLine: "401 Industrial Ave, Teterboro, NJ 07608",
-  phone: "(973) 864-6200",
-  phoneHref: "tel:+19738646200",
-  email: "info@jetvipcharter.com",
+  /** Hero nav wordmark only */
+  brandName: "Empire Corp",
+  name: "New Empire Corp",
+  displayName: "Empire Corp",
+  locationLabel: "NYC",
+  address: "570 Lexington Ave, Suite 2000A\nNew York, NY 10022",
+  addressLine: "570 Lexington Ave, Suite 2000A, New York, NY 10022",
+  phone: "(212) 991-8187",
+  phoneHref: "tel:+12129918187",
 } as const;
 
-export const mapEmbedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(business.addressLine)}&output=embed&z=14`;
+export const mapEmbedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(business.addressLine)}&hl=en&z=17&ie=UTF8&t=k&output=embed`;
+
+export const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(business.addressLine)}`;
