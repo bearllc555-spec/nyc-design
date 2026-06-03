@@ -1,7 +1,7 @@
 /** Google Business Profile — New Empire Corp */
 export const business = {
-  /** Hero nav wordmark only */
-  brandName: "Empire Corp",
+  /** Hero nav wordmark */
+  brandName: "New Empire Corp",
   name: "New Empire Corp",
   displayName: "Empire Corp",
   locationLabel: "NYC",
