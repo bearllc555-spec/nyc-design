@@ -1,14 +1,25 @@
 import { AnimatedHeading } from "./AnimatedHeading";
 import { FadeIn } from "./FadeIn";
+import { VersionLine } from "./VersionLine";
 
 const VIDEO_URL =
   "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260403_050628_c4e32401-fab4-4a27-b7a8-6e9291cd5959.mp4";
 
-const NAV_LINKS = ["Story", "Investing", "Building", "Advisory"] as const;
+const NAV_LINKS = [
+  { label: "Story", href: "#story" },
+  { label: "Rates", href: "#rates" },
+  { label: "Benefits", href: "#benefits" },
+  { label: "FAQ", href: "#faq" },
+  { label: "Contact", href: "#contact" },
+] as const;
 
 export function Hero() {
   return (
-    <div className="relative min-h-screen bg-black text-white">
+    <section
+      id="start"
+      className="relative min-h-screen bg-black text-white"
+      aria-label="Hero"
+    >
       <video
         autoPlay
         loop
@@ -22,16 +33,19 @@ export function Hero() {
       <div className="relative flex min-h-screen flex-col">
         <div className="px-6 pt-6 md:px-12 lg:px-16">
           <nav className="liquid-glass flex items-center justify-between rounded-xl px-4 py-2">
-            <span className="text-2xl font-semibold tracking-tight">VEX</span>
+            <div className="flex flex-col">
+              <span className="text-2xl font-semibold tracking-tight">VEX</span>
+              <VersionLine className="mt-0.5 text-white/60" />
+            </div>
 
             <div className="hidden items-center gap-8 text-sm md:flex">
-              {NAV_LINKS.map((label) => (
+              {NAV_LINKS.map((item) => (
                 <a
-                  key={label}
-                  href={`#${label.toLowerCase()}`}
+                  key={item.href}
+                  href={item.href}
                   className="text-white transition-colors hover:text-gray-300"
                 >
-                  {label}
+                  {item.label}
                 </a>
               ))}
             </div>
@@ -45,7 +59,7 @@ export function Hero() {
           </nav>
         </div>
 
-        <div className="flex flex-1 flex-col justify-end px-6 pb-12 md:px-12 lg:px-16 lg:pb-16">
+        <div className="flex flex-1 flex-col justify-end px-6 pb-4 md:px-12 lg:px-16 lg:pb-6">
           <div className="lg:grid lg:grid-cols-2 lg:items-end">
             <div>
               <AnimatedHeading
@@ -88,8 +102,12 @@ export function Hero() {
               </FadeIn>
             </div>
           </div>
+
+          <div className="mt-8 pb-6 lg:pb-8">
+            <VersionLine className="text-white/50" />
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
