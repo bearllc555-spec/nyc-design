@@ -9,14 +9,15 @@
 | Environment | Git branch | Preview URL |
 |-------------|------------|-------------|
 | **Dev (sandbox)** | `dev` | https://dev.nyc-design.pages.dev |
-| **Production** | `main` | https://nyc-design.pages.dev |
+
+**Production** (`https://nyc-design.pages.dev`) was removed — the Pages project is dev-only. Do not deploy `main` unless you intentionally want production back.
 
 - **Pages project:** `nyc-design`
 - **URL mode:** `root` (single-page app at `/`)
 - **Build output:** `./dist` (Vite production build)
 - **Account ID:** `e0f6f68f26f8a26a75eaa793385019ef`
 
-Workflow: `.github/workflows/deploy.yml` — builds on push to `main` and `dev`, sets `VITE_SITE_URL` per branch in the workflow file (not empty repo variables), deploys with Wrangler.
+Workflow: `.github/workflows/deploy.yml` — builds on push to **`dev` only**, sets `VITE_SITE_URL=https://dev.nyc-design.pages.dev`, deploys with Wrangler.
 
 ### Version label
 
@@ -25,7 +26,7 @@ Bump `SITE_VERSION` in `src/lib/version.ts` on **every** change (`v1.01` → `v1
 ### Branch workflow
 
 1. Day-to-day work on **`dev`** — pushes auto-deploy to the dev preview URL.
-2. Merge to **`main`** when ready for production preview / custom domain.
+2. **`main`** is not wired to Cloudflare Pages (production URL retired).
 
 ### GitHub Actions secrets
 
