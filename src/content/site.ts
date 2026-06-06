@@ -3,7 +3,7 @@ import { business } from "../lib/business";
 export const faqs = [
   {
     q: "What does New Empire Corp do?",
-    a: "New Empire Corp partners with founders and operators on investing, building, and advisory mandates — from early strategy through execution — with a team based in Midtown Manhattan.",
+    a: "New Empire Corp partners with owners and investors on investing, building, and advisory mandates — from acquisitions and development through asset management — with a team based at 570 Lexington Avenue in Midtown Manhattan.",
   },
   {
     q: "How do I get in touch?",
@@ -33,8 +33,9 @@ export const contactNote =
 export const footerLinks = [
   { label: "Home", href: "#start" },
   { label: "Story", href: "#story" },
-  { label: "Rates", href: "#rates" },
-  { label: "Benefits", href: "#benefits" },
+  { label: "Capabilities", href: "#capabilities" },
+  { label: "Mandates", href: "#engagements" },
+  { label: "Neighborhood", href: "#neighborhood" },
   { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "#contact" },
 ] as const;

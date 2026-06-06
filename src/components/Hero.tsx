@@ -9,8 +9,8 @@ const VIDEO_URL =
 
 const NAV_LINKS = [
   { label: "Story", href: "#story" },
-  { label: "Rates", href: "#rates" },
-  { label: "Benefits", href: "#benefits" },
+  { label: "Capabilities", href: "#capabilities" },
+  { label: "Mandates", href: "#engagements" },
   { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "#contact" },
 ] as const;
@@ -90,12 +90,12 @@ export function Hero() {
                   >
                     Start a Chat
                   </button>
-                  <button
-                    type="button"
+                  <a
+                    href="#story"
                     className="liquid-glass rounded-lg border border-white/20 px-8 py-3 font-medium text-white transition-colors hover:bg-white hover:text-black"
                   >
                     Explore Now
-                  </button>
+                  </a>
                 </div>
               </FadeIn>
             </div>
